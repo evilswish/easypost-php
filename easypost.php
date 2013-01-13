@@ -1,7 +1,7 @@
 <?php
 
 class EasyPost {
-  private static $base_url = 'http://www.easypostapi.com/api';
+  private static $base_url = 'https://www.geteasypost.com/api';
   public static $api_key = '...';
 
   public static function setApiKey($api_key) {
