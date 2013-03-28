@@ -16,11 +16,12 @@ class EasyPost {
     $process = curl_init($url);
     curl_setopt($process, CURLOPT_USERPWD, self::$api_key . ":");
     curl_setopt($process, CURLOPT_POST, 1);
+    curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
     if(empty($params)) {
       $params = array();
     }
     curl_setopt($process, CURLOPT_POSTFIELDS, http_build_query($params));
-    $return = json_decode(curl_exec($process));
+    $return = json_decode(curl_exec($process), true);
     return $return;
   }
 
