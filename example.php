@@ -1,5 +1,7 @@
 <?php
 
+include_once("easypost.php");
+
 // Example Code
 
 EasyPost::setApiKey("cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi");
@@ -12,7 +14,7 @@ $address = array('street1' => '388 Townsend St',
 
 echo "<p>";
 $response = EasyPost_Address::verify($address);
-echo $response['address'];
+print_r($response['address']);
 echo "</p>";
 
 $rates = array(
@@ -42,20 +44,20 @@ $rates = array(
 
 echo "<p>";
 $response = EasyPost_Postage::rates($rates);
-echo $response['rates'];
+print_r($response['rates']);
 echo "</p>";
 
 echo "<p>";
 $response = EasyPost_Postage::buy($rates);
-echo $response['rate'];
+print_r($response['rate']);
 echo "</p>";
 
 echo "<p>";
-echo EasyPost_Postage::get("test.png");
+print_r(EasyPost_Postage::get("test.png"));
 echo "</p>";
 
 echo "<p>";
-echo EasyPost_Postage::listAll();
+print_r(EasyPost_Postage::listAll());
 echo "</p>";
 
 ?>
